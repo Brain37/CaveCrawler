@@ -1,12 +1,15 @@
 import java.io.File;
 import java.util.Scanner;
 
+
 public class Driver 
 {
 	public static void main(String[] args)
 	{
-		CaveParser cp = new CaveParser("simpleJSON");
-		cp.parse();
+		CaveParser cp = new CaveParser("caveJSON");
+		cp.parse().display();
+		System.out.println(cp.parse().exportToJSON());
+		
 		/*
 		Room caveEntrance = new Room("The Cave Entrance");
 		Room room2 = new Room("Room #2");
