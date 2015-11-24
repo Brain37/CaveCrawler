@@ -7,8 +7,8 @@ public class Driver
 	public static void main(String[] args)
 	{
 		CaveParser cp = new CaveParser("caveJSON");
-		cp.parse().display();
-		System.out.println(cp.parse().exportToJSON());
+		JSONObject theCave = cp.parse();
+		System.out.println(theCave.exportToJSON());
 		
 		/*
 		Room caveEntrance = new Room("The Cave Entrance");

@@ -30,11 +30,11 @@ public class JSONObject
 	public String exportToJSON()
 	{
 		String answer = "{";
-		for(int i = 0; i < this.currSize; i++)
+		for(int i = 0; i < this.currSize - 1; i++)
 		{
-			answer += this.theVariables[i].exportToJSON();
+			answer += this.theVariables[i].exportToJSON() + ",";
 		}
-		answer += "}";
+		answer += this.theVariables[this.currSize - 1].exportToJSON() + "}";
 		return answer;
 	}
 }

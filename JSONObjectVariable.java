@@ -17,6 +17,6 @@ public class JSONObjectVariable extends JSONVariable
 	@Override
 	public String exportToJSON() 
 	{
-		return "\"" + this.name + "\"{\"" + this.value + "\"}";
+		return "\"" + this.name + "\":" + this.value.exportToJSON();
 	}
 }

@@ -29,6 +29,13 @@ public class JSONArrayVariable extends JSONVariable
 	@Override
 	String exportToJSON() 
 	{
-		return "\"" + this.name + "\":[" + this.value + "]";
+		{
+			String ans = "\"" + this.name + "\":[";
+			for (int i = 0; i < currSize - 1; i++)
+			{
+				ans += this.value[i].exportToJSON() + ",";
+			}
+			return ans + this.value[currSize - 1].exportToJSON() + "]";
+		}
 	}
 }

@@ -30,11 +30,11 @@ public class JSONArray extends JSONVariable
 	public String exportToJSON() 
 	{
 		String answer = "\"" + this.name + "\":[";
-		for(int i = 0; i < this.currSize; i++)
+		for(int i = 0; i < this.currSize - 1; i++)
 		{
-			answer += this.theJSONArray[i].exportToJSON();
+			answer += this.theJSONArray[i].exportToJSON() + ",";
 		}
-		answer += "]";
+		answer += this.theJSONArray[this.currSize - 1].exportToJSON() + "]";
 		return answer;
 	}
 }
