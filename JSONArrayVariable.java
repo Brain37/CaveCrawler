@@ -1,4 +1,3 @@
-
 public class JSONArrayVariable extends JSONVariable
 {
 	private JSONObject[] value;
@@ -10,6 +9,15 @@ public class JSONArrayVariable extends JSONVariable
 		this.currSize = 0;
 	}
 	
+	public JSONObject[] getValue() 
+	{
+		return value;
+	}
+
+	public int getCurrSize() {
+		return currSize;
+	}
+
 	public void addJSONObject(JSONObject obj)
 	{
 		this.value[this.currSize] = obj;
@@ -29,13 +37,16 @@ public class JSONArrayVariable extends JSONVariable
 	@Override
 	String exportToJSON() 
 	{
+		String answer = "\"" + this.name + "\": [";
+		for(int i = 0; i < this.currSize; i++)
 		{
-			String ans = "\"" + this.name + "\":[";
-			for (int i = 0; i < currSize - 1; i++)
+			answer += this.value[i].exportToJSON();
+			if(i != this.currSize-1)
 			{
-				ans += this.value[i].exportToJSON() + ",";
+				answer += ",";
 			}
-			return ans + this.value[currSize - 1].exportToJSON() + "]";
 		}
+		answer += " ]";
+		return answer;
 	}
 }
